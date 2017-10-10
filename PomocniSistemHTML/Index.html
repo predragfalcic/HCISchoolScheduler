@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Dodavanje taga</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-left">
+    <a class="navbar-brand" href="#">Racunarski centar</a>
+    <ul class="nav navbar-nav">
+     <li><a href="#about">O programu</a></li>
+     <li><a href="#shortcuts">Precice</a></li>
+     <li><a href="#demo">Demo mod</a></li>
+     <li><a href="#sidebar">Prikaz predmeta za prevlacenje</a></li>
+     <li><a href="#dragdrop">Drag and Drop</a></li>
+     <li><a href="#further">Pogledajte jos...</a></li>
+    </ul>
+  </div>
+  
+  <div class="container">
+    <h1>Racunarski centar</h1>
+    
+    <p>
+      Program se bavi kreiranjem rasporeda termina predmeta po ucionica za racunarski centar. <br/>
+      Predmet poseduje softver koji mu je neophodan za rad, neophodan operativni sistem, i predmet slusa odredjen smer. </br>
+      Svaka ucionica radi od 07:00 casova do 22:00 casova, za to vreme se u nju za odredjen datum iz liste predmeta </br>
+      prebacuju predmeti. Predmeti se ne mogu preklapati. Prilikom biranja datuma za koj ce te kreirati raspored u ucionici </br>
+      nije moguce kreirati za sedmi dan u nedelji, to jest ne mozete kreirati raspored rada ucionice za nedelju.</br>
+      Jako je bitno napomenuti da broj termina predmeta se gleda na bazi nedelju dana. Tako da ako predmet mozete <br />
+      ubaciti u raspored za trenutnu nedelju samo onoliko puta koliko ste postavili da je predmetu potrebno termina. <br />
+      Tek od sledece nedelje mozete ponovo ubaciti predmet u raspored. <br />
+    </p>
+    
+    <div id="about">
+      <h3>O aplikaciji</h3>
+      Aplikacija je namenjena korisnicima koji su upoznati sa radom na racunaru. <br/>
+      Kako je planirana za rad sa velikim brojem podataka, precice su izuzetno bitne i bice navedene u sljedecoj sekciji. <br/>
+      Posto ne mora da vazi da su korisnici domenski strucnjaci, za svaku formu obezbijedjen je jedan nivo pomoci. <br/>
+      
+      Na slici 1. je prikazan glavni prozor aplikacije.
+      <figure>
+        <img src="../Slike/glavni_prozor.png" width="900px"/>
+        <figcaption>Slika 1. Glavni prozor programa</figcaption>
+      </figure>
+    </div>
+    
+    <div id="shortcuts">
+      <h3>Precice</h3>
+      Aplikacija poseduje 10 najosnovnijih precica: <br/></br>
+      <kbd><kbd>Ctrl</kbd> + <kbd>U</kbd></kbd> sluzi za dodavanje nove ucionice. <br/><br/>
+      <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd></kbd> sluzi za pregledanje svih ucionica. <br/><br/>
+
+      <kbd><kbd>Ctrl</kbd> + <kbd>S</kbd></kbd> sluzi za dodavanje novog smera. <br/><br/>
+      <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></kbd> sluzi za pregledanje svih smerova. <br/><br/>
+
+      <kbd><kbd>Ctrl</kbd> + <kbd>P</kbd></kbd> sluzi za dodavanje novog predmeta. <br/><br/>
+      <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></kbd> sluzi za pregledanje svih predmeta. <br/><br/>
+
+      <kbd>F1</kbd> sluzi za pokretanje dokumentacije u zavisnosti od konteksta. <br/><br/>
+      <kbd>F5</kbd> sluzi za pokretanje i zaustavljanje demo moda. <br/><br/>
+    </div>
+    
+    <div id="demo">
+      <h3>Demo mod</h3>
+      <div class="alert alert-info" role="alert">
+        Kako korisnik nije upoznat sa domenom, a uglanvnom se bavi unosenjem velike kolicine podataka, za shodno je uzeto da se
+        korisniku pokaže primer unosa predmeta.
+      </div>
+      
+      Demo mod se pokrece iz glavnog prozora klikom na dugme <kbd>F5</kbd> ili menijem <code>Pomoc &gt; Demo mod</code>.<br/>
+      Korisniku je u svakom trenutku dozvoljeno da pauzira ili nastavi demo takodje klikom na dugme dugme <kbd>F5</kbd>.
+    </div>
+    
+    <div id="sidepanel">
+      <h3>Prikaz predmeta za prevlacenje</h3>
+      
+      Na slici 2. izdvojen je prikaz predmeta za prevlacenje.
+      <figure>
+        <img src="../Slike/lista_predmeta.png"/>
+        <figcaption>Slika 2. Prikaz predmeta za prevlacenje</figcaption>
+      </figure>
+      
+      Odmah ispod glavnog menija, a sa leve strane radne povrsine na kojoj je prikazana satnica, nalazi se lista predmeta koji treba da
+      budu rasporedjeni na radnu povrsinu. <br/>
+      Korisniku je olaksano raspoznavanje o kojom predmetu se radi jer je u prvom redu prikazana oznaka predmeta, u drugom redu njen naziv, i da <br />
+      bi znao koliko casova je potrebno predmetu, u trecem redu je prikazan broj casova predmeta.
+    </div>
+    
+    <div id="dragdrop">
+      <h3>Drag and Drop</h3>
+      <div class="alert alert-info" role="alert">
+        Prenos predmeta se vrdi direktnom manipulacijom. Prevlacenjem predmeta iz panela na radnu povrsinu definisete
+        poziciju predmeta na satnici, tj. u koje vreme ce odrzati nastava za taj predmet.
+      </div>
+      Takodje, desnim klikom misa se korisniku pojavljuje kontekstni meni sa opcijama <b>detaljnog prikaza</b>, <b>izmene predmeta</b> i <b>uklanjanja predmeta sa rasporeda</b>.
+    </div>
+    
+    <div id="further">
+      <h3>Pogledajte jos...</h3>
+      
+      Preporucujemo Vam da procitate i ostatak dokumentacije vezane za aplikaciju.
+      
+      <h4>Predmeti</h4>
+      <ul>
+        <li><a href="Predmet.html">Dodavanje predmeta</a></li>
+        <li><a href="IzmenaPredmeta.html">Izmena predmeta</a></li>
+        <li><a href="PretragaPredmeta.html">Pretraga predmeta</a></li>
+      </ul>
+      
+      <h4>Smerovi</h4>
+      <ul>
+        <li><a href="Smer.html">Dodavanje smera</a></li>
+        <li><a href="IzmenaSmera.html">Izmena smera</a></li>
+        <li><a href="PretragaSmera.html">Pretraga smerova</a></li>
+      </ul>
+      
+      <h4>Ucionice</h4>
+      <ul>
+        <li><a href="Ucionica.html">Dodavanje ucinica</a></li>
+        <li><a href="IzmenaUcionica.html">Izmena ucionica</a></li>
+        <li><a href="PretragaUcionica.html">Pretraga ucionica</a></li>
+      </ul>
+
+      <h4>Softveri</h4>
+      <ul>
+        <li><a href="Softver.html">Dodavanje softvera</a></li>
+        <li><a href="IzmenaSoftvera.html">Izmena softvera</a></li>
+        <li><a href="PretragaSoftvera.html">Pretraga softvera</a></li>
+      </ul>
+    </div>
+  </div>
+    
+</body>
+</html>

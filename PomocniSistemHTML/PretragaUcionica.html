@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Pretraga ucionica</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-left">
+    <a class="navbar-brand" href="#">Racunarsli centar</a>
+    <ul class="nav navbar-nav">
+     <li><a href="#id">Pretraga po oznaci</a></li>
+     <li><a href="#opis">Pretraga po opisu</a></li>
+     <li><a href="#grupa">Pretraga po broju radnih mesta</a></li>
+     <li><a href="#oprema">Pretraga po opremi u ucionici</a></li>
+     <li><a href="#os">Pretraga po instaliranom operativnom sistemu</a></li>
+     <li><a href="#additional">Pretraga po dodatnim informacijama</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>Pretraga ucionica</h1>
+    
+    <p style="color: #D50000; margin-top: 16px;">
+      <strong>Moguce je kombinovati parametre pretrage.</strong>
+    </p>
+    
+    <p style="color: #D50000; margin-top: 16px;">
+      <strong>NAPOMENA: </strong>
+      Parametri pretrage nisu osetljivi na mala i velika slova.
+    </p>
+    
+    <div id="id">
+      <h3>Pretraga po oznaci</h3>
+      <div class="alert alert-info" role="alert">
+        Sve ucionice koje u svojoj oznaci sadrze uneseni pojam ce biti prikazani kao rezultat pretrage.
+      </div>
+      
+      Neka postoje tri ucionice sa oznakama - <strong>PREDMET</strong>, <strong>PREDMET2</strong> i <strong>ABCDEFGHI</strong>. <br/>
+      <ul>
+        <li> Ako je parametar pretrage <strong>PRED</strong> rezultat su prve dve ucionice. </li>
+        <li> Ako je parametar pretrage <strong>MET2</strong> rezultat je samo druga ucionica. </li>
+        <li> Ako je parametar pretrage <strong>E</strong> rezultat su sve tri ucionice. </li>
+      </ul>
+    
+    </div>
+    
+    <div id="opis">
+      <h3>Pretraga po opisu</h3>
+      <div class="alert alert-info" role="alert">
+        Sve ucionice koje u svom opisu sadrze uneseni pojam ce biti prikazane kao rezultat pretrage.
+      </div>
+
+      Neka postoje tri ucionice sa opisima - <strong>OpisPrveUcionice</strong>, <strong>OpisDrugeUcionice</strong> i <strong>OpisTreceUcionice</strong>. <br/>
+      <ul>
+        <li> Ako je parametar pretrage <strong>ugeucionice</strong> rezultat je samo draga ucionica. </li>
+        <li> Ako je parametar pretrage <strong>opis</strong> rezultat su sve tri ucionice. </li>
+      </ul>
+
+    </div>
+    
+    <div id="grupa">
+      <h3>Pretraga po broju radnih mesta</h3>
+      <div class="alert alert-info" role="alert">
+        Kao rezutat pretrage prikazuju se sve ucionice ciji je broj radnih mesta u unesenom opsegu.
+      </div>
+      Kao sto vidite na slici 1, u prvo polje se unosi <b>minimalan broj radnih mesta</b>, a u drugo polje
+      se unosi <b>maksimalan broj radnih mesta</b>.<br/>
+      Ucionice ciji se broj radnih mesta nalazi izmedju ova dva broja bice prikazan u tabeli.
+      <figure>
+        <img src="../Slike/pretraga_broj_radnih_mesta.png"/>
+        <figcaption>Slika 1. Prikaz komponente za pretragu po broju radnih mesta</figcaption>
+      </figure>
+    </div>
+
+    <div id="oprema">
+      <h3>Pretraga po opremi koja u ucionici</h3>
+      
+      <div class="alert alert-info" role="alert">
+        Kao rezultat prikazuju se ucionice cija je potrebna oprema jedna od izabranih vrednosti.
+      </div>
+      
+      <figure>
+        <img src="../Slike/oprema.png"/>
+        <figcaption>Slika 2. Pretraga po opremi u ucionici</figcaption>
+      </figure>
+      
+      Dakle, na slici 2. vidite da mozete oznaciti vise oprema.
+      To znaci da, ako ste oznacili opcije <b>Projektor</b> i <b>Tabla</b>, kao rezultat pretrage Vam se prikazuju sve
+      ucionice koje imaju projektor <b>ILI</b> ucionice koje imaju tablu.      
+    </div>
+
+    <div id="os">
+      <h3>Pretraga po potrebnom instaliranom operativnom sistemu</h3>
+      
+      <div class="alert alert-info" role="alert">
+        Kao rezultat prikazuju se ucionice ciji je instaliran operativni sistem jedan od izabranih vrednosti.
+      </div>
+      
+      Vidite da mozete oznaciti vise oprema.
+      To znaci da, ako ste oznacili opcije <b>Windows</b> i <b>Linux</b>, kao rezultat pretrage Vam se prikazuju sve
+      ucionice koje imaju Windows <b>ILI</b> ucionice koje imaju Linux. Polje izgleda kao polje na slici 2. 
+    </div>
+    
+    <div id="additional">
+      <h3>Pretraga po dodatnim informacijama</h3>
+      
+      <div class="alert alert-info" role="alert">
+        Kao rezultat prikazuju se ucionice koje poseduju neku od izabranih vrednosti. Dodatne informacije obuhvataju pretragu ucionica instaliranom softveru.
+        Princip pretrage je isti kao u prethodna dva slucaja.
+      </div>
+      
+      <figure>
+        <img src="../Slike/ucionica_dodatne_opcije.png"/>
+        <figcaption>Slika 3. Prikaz komponente za pretragu po dodatnim informacijama</figcaption>
+      </figure>
+    </div>
+</body>
+</html>

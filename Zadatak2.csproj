@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F3F604C-714D-430E-AB79-E7D7B55CB910}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zadatak2</RootNamespace>
+    <AssemblyName>Zadatak2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Mvvm.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpf.Core.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpf.Ribbon.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpf.Scheduler.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Binders\BooleanToStringConverter.cs" />
+    <Compile Include="Binders\EnumToStringConverter.cs" />
+    <Compile Include="Binders\LengthToBooleanConverter.cs" />
+    <Compile Include="Interfejs\Dialozi\DetaljiPredmetaDialog.xaml.cs">
+      <DependentUpon>DetaljiPredmetaDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\DetaljiSmeraDialog.xaml.cs">
+      <DependentUpon>DetaljiSmeraDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\DetaljiSoftveraDialog.xaml.cs">
+      <DependentUpon>DetaljiSoftveraDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\DetaljiUcioniceDialog.xaml.cs">
+      <DependentUpon>DetaljiUcioniceDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\HelpWindow.xaml.cs">
+      <DependentUpon>HelpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\IzmeniPredmetDialog.xaml.cs">
+      <DependentUpon>IzmeniPredmetDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\IzmeniSmer.xaml.cs">
+      <DependentUpon>IzmeniSmer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\IzmeniSoftverDialog.xaml.cs">
+      <DependentUpon>IzmeniSoftverDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\IzmeniUcionicuDialog.xaml.cs">
+      <DependentUpon>IzmeniUcionicuDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\PrikaziSvePredmeteDialog.xaml.cs">
+      <DependentUpon>PrikaziSvePredmeteDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\PrikaziSveSmeroveDialog.xaml.cs">
+      <DependentUpon>PrikaziSveSmeroveDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\PrikaziSveSoftvereDialog.xaml.cs">
+      <DependentUpon>PrikaziSveSoftvereDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\PrikaziSveUcioniceDialog.xaml.cs">
+      <DependentUpon>PrikaziSveUcioniceDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Klase\PomocniSistem.cs" />
+    <Compile Include="Klase\RasporedTermina.cs" />
+    <Compile Include="Klase\Termin.cs" />
+    <Compile Include="Validacija\CenaSoftveraPravilo.cs" />
+    <Compile Include="Validacija\DatumSmerValidacijaPravilo.cs" />
+    <Compile Include="Validacija\DobarLinkPravilo.cs" />
+    <Compile Include="Validacija\DuzinaIdPravilo.cs" />
+    <Compile Include="Validacija\DuzinaNazivaPravilo.cs" />
+    <Compile Include="Validacija\DuzinaOpisaPravilo.cs" />
+    <Compile Include="Validacija\GodinaIzdavanjaSoftveraPravilo.cs" />
+    <Page Include="Interfejs\Dialozi\DetaljiPredmetaDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\DetaljiSmeraDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\DetaljiSoftveraDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\DetaljiUcioniceDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\DodajPredmetDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\DodajSmerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\DodajSoftverDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\DodajUcionicuDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\HelpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\IzmeniPredmetDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\IzmeniSmer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\IzmeniSoftverDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\IzmeniUcionicuDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\PrikaziSvePredmeteDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\PrikaziSveSmeroveDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\PrikaziSveSoftvereDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Interfejs\Dialozi\PrikaziSveUcioniceDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Binders\EnumBooleanConverter.cs" />
+    <Compile Include="Commands\Commands.cs" />
+    <Compile Include="Interfejs\Dialozi\DodajPredmetDialog.xaml.cs">
+      <DependentUpon>DodajPredmetDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\DodajSmerDialog.xaml.cs">
+      <DependentUpon>DodajSmerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\DodajSoftverDialog.xaml.cs">
+      <DependentUpon>DodajSoftverDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfejs\Dialozi\DodajUcionicuDialog.xaml.cs">
+      <DependentUpon>DodajUcionicuDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Klase\DataDAO.cs" />
+    <Compile Include="Klase\Predmet.cs" />
+    <Compile Include="Klase\Smer.cs" />
+    <Compile Include="Klase\Softver.cs" />
+    <Compile Include="Klase\Ucionica.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\Satnica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\pozadinaPredmeta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PomocniSistemHTML\Index.html" />
+    <Content Include="PomocniSistemHTML\PretragaSoftvera.html" />
+    <Content Include="PomocniSistemHTML\IzmeniSoftver.html" />
+    <Content Include="PomocniSistemHTML\Softver.html" />
+    <Content Include="PomocniSistemHTML\PretragaSmera.html" />
+    <Content Include="PomocniSistemHTML\IzmenaSmera.html" />
+    <Content Include="PomocniSistemHTML\Smer.html" />
+    <Content Include="PomocniSistemHTML\PretragaUcionica.html" />
+    <Content Include="PomocniSistemHTML\IzmenaUcionica.html" />
+    <Content Include="PomocniSistemHTML\IzmenaPredmeta.html" />
+    <Content Include="PomocniSistemHTML\css\bootstrap.min.css" />
+    <Content Include="PomocniSistemHTML\css\style.css" />
+    <Content Include="PomocniSistemHTML\Predmet.html" />
+    <Content Include="PomocniSistemHTML\PretragaPredmeta.html" />
+    <Content Include="PomocniSistemHTML\Ucionica.html" />
+    <Resource Include="Slike\lista_predmeta.png" />
+    <Resource Include="Slike\DemoMode.jpg" />
+    <Resource Include="Slike\Help.png" />
+    <Resource Include="Slike\EditItem.png" />
+    <Resource Include="Slike\ViewItem.png" />
+    <Resource Include="Slike\DeleteItem.png" />
+    <Resource Include="Slike\AddItem.png" />
+    <Resource Include="Slike\godina_izdavanja_pretraga.png" />
+    <Resource Include="Slike\cena_softvera.png" />
+    <Resource Include="Slike\godina_izdavanja_softvera.png" />
+    <Resource Include="Slike\sajt_proizvodjaca.png" />
+    <Resource Include="Slike\pretraga_datum.png" />
+    <Resource Include="Slike\datum.png" />
+    <Resource Include="Slike\pretraga_broj_radnih_mesta.jpg" />
+    <Resource Include="Slike\ucionica_dodatne_opcije.png" />
+    <Resource Include="Slike\projektorUcionica.png" />
+    <Resource Include="Slike\PredmetId.png" />
+    <Resource Include="Slike\predmet_dodatne_informacije.png" />
+    <Resource Include="Slike\oprema.png" />
+    <Resource Include="Slike\pretraga_velicine_grupe.png" />
+    <Resource Include="Slike\softver_potreban.png" />
+    <Resource Include="Slike\os.png" />
+    <Resource Include="Slike\projektor.png" />
+    <Resource Include="Slike\biranje_smera.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

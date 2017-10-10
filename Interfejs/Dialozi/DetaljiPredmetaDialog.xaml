@@ -1,0 +1,177 @@
+﻿<Window x:Class="Zadatak2.Interfejs.Dialozi.DetaljiPredmetaDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:binder="clr-namespace:Zadatak2.Binders"
+        Title="DetaljiPredmetaDialog" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+
+    <Window.Resources>
+
+        <binder:BooleanToStringConverter x:Key="BooleanToString"/>
+        <binder:EnumToStringConverter x:Key="EnumToString" />
+        
+    </Window.Resources>
+    
+    <Grid Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                    <StackPanel Orientation="Vertical" Margin="5,5,5,5">
+                        <TextBlock  Text="{Binding Path=Predmet.Id }" Foreground="#666" FontSize="24"/>
+                        <TextBlock Text="{Binding Path=Predmet.Naziv }" Foreground="#333" FontSize="24" FontWeight="Bold"/>
+                        <Label FontSize="22" FontWeight="SemiBold">Smerovi koji slusaju predmet:</Label>
+                        <ListView FontSize="24" Background="Transparent" BorderThickness="0" Margin="0,10,0,0" MaxHeight="48"
+                            ItemsSource="{Binding Path=Predmet.Smerovi}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+                                        RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                                        ItemWidth="{Binding (ListView.View).ItemWidth, 
+                                        RelativeSource={RelativeSource AncestorType=ListView}}"
+                                        MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"
+                                        ItemHeight="{Binding (ListView.View).ItemHeight, 
+                                        RelativeSource={RelativeSource AncestorType=ListView}}" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="128"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                    <StackPanel Orientation="Vertical" Margin="5,5,5,5">
+                        <Label FontSize="22" FontWeight="SemiBold">Softver neophodan za predmet:</Label>
+                        <ListView FontSize="24" Background="Transparent" BorderThickness="0" Margin="0,10,0,0" MaxHeight="48"
+                            ItemsSource="{Binding Path=Predmet.NeophodanSoftver}">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>    
+                                    <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+                                        RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                                        ItemWidth="{Binding (ListView.View).ItemWidth, 
+                                        RelativeSource={RelativeSource AncestorType=ListView}}"
+                                        MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"
+                                        ItemHeight="{Binding (ListView.View).ItemHeight, 
+                                        RelativeSource={RelativeSource AncestorType=ListView}}" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.ColumnSpan="3">
+            <StackPanel Orientation="Vertical">
+                <Label FontSize="22" FontWeight="SemiBold">Opis Predmeta:</Label>
+                <TextBlock FontSize="24" Text="{Binding Path=Predmet.Opis}" TextWrapping="Wrap"
+                           Foreground="#333" Padding="10,10,10,10" HorizontalAlignment="Stretch"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="0" Margin="5,5,5,5">
+            <StackPanel Orientation="Horizontal" Background="#EEE">
+
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="22" Foreground="#666">Velicina grupe:</Label>
+                    <TextBlock FontSize="24"  Foreground="#333" Text="{Binding Predmet.VelicinaGrupe}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="1" Margin="5,5,5,5">
+            <StackPanel Orientation="Horizontal" Background="#EEE">
+
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="22" Foreground="#666">Minimalna duzina termina:</Label>
+                    <TextBlock FontSize="24"  Foreground="#333" Text="{Binding Predmet.MinimalnaDuzinaTermina}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="2" Margin="5,5,5,5">
+            <StackPanel Orientation="Horizontal" Background="#EEE">
+
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="22" Foreground="#666">Broj termina predmeta</Label>
+                    <TextBlock FontSize="24"  Foreground="#333" Text="{Binding Predmet.BrojTerminaPredmeta}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="0" Margin="5,5,5,5">
+            <StackPanel Orientation="Horizontal" Background="#EEE">
+
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="22" Foreground="#666">Potreban projektor</Label>
+                    <TextBlock FontSize="24"  Foreground="#333" Text="{Binding Predmet.PotrebanProjektor, Converter={StaticResource BooleanToString}}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="1" Margin="5,5,5,5">
+            <StackPanel Orientation="Horizontal" Background="#EEE">
+
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="22"  Foreground="#666">Potrebna tabla</Label>
+                    <TextBlock FontSize="24"  Foreground="#333" Text="{Binding Predmet.PotrebnaTabla, Converter={StaticResource BooleanToString}}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="2" Margin="5,5,5,5">
+            <StackPanel Orientation="Horizontal" Background="#EEE">
+
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="22" Foreground="#666">Potrebna pametna tabla</Label>
+                    <TextBlock FontSize="24"  Foreground="#333" Text="{Binding Predmet.PotrebnaPametnaTabla, Converter={StaticResource BooleanToString}}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        
+        <Grid Grid.Row="5" Grid.Column="0" Margin="5,5,5,5">
+            <StackPanel Orientation="Horizontal" Background="#EEE">
+
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="22" Foreground="#666">Potreban operativni sistem</Label>
+                    <TextBlock FontSize="24"  Foreground="#333" Text="{Binding Predmet.OperativniSistemP, Converter={StaticResource ResourceKey=EnumToString}}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

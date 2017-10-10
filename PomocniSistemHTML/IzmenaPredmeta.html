@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Dodavanje predmeta</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-left">
+    <a class="navbar-brand" href="#">Racunarsli centar</a>
+    <ul class="nav navbar-nav">
+     <li><a href="#id">Oznaka predmeta</a></li>
+     <li><a href="#naziv">Naziv predmeta</a></li>
+     <li><a href="#opis">Opis predmeta</a></li>
+     <li><a href="#smerovi">Smer predmeta</a></li>
+     <li><a href="#velicina_grupe">Velicina grupe u kojoj se radi predmet</a></li>
+     <li><a href="#minimalna_duzina_termina">Minimalna duzina termina predmeta</a></li>
+     <li><a href="#broj_termina_koji_predmet_zahteva">Broj termina koji predmet zahteva</a></li>
+     <li><a href="#projektor">Neophodnost projektora za nastavu</a></li>
+     <li><a href="#tabla">Neophodnost table za nastavu</a></li>
+     <li><a href="#pametna_tabla">Neophodnost pametne table za nastavu</a></li>
+     <li><a href="#os">Neophodnost operativnog sistema za nastavu</a></li>
+     <li><a href="#softver">Neophodnost softvera za nastavu</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>Izmena predmeta</h1>
+    
+    <p>
+      Sva polja koja su oznacena sa <span style="color:#D50000;">*</span> su obavezna. <br/>
+      Softver vam nece dozvoliti potvrdu unosa dok ne unesete sva obavezna polja.
+    </p>
+    
+    <div>
+      <h3>Sta je predmet?</h3>
+      <blockquote>
+        <p>
+          Predmet je entitet kog slusaju studenti na negom od smerova. Jedan predmet mogu slusati vise razlicitih smerova. Svaki predmet ima 
+          nekoliko atributa koji su mu neophodni za nastavu, to su: projektor, tabla, pametna tabla i operativni sistem. Da bi se neki predmet 
+          slusao u nekoj ucionici ucionica mora posedovati sve sto je potrebno predmetu za nastavu. Takodje predmet ima velicinu grupe u kojoj 
+          se slusa i ucionica ne sme imati manje od radnih mesta nego sto predmet zahteva. 
+        </p>
+      </blockquote>
+    </div>
+    
+    <div id="id">
+      <h3>Oznaka predmeta</h3>
+      <div class="alert alert-info" role="alert">
+        Oznaka predmeta mora da ima <strong>između 5 i 30 karaktera</strong>, 
+        sadrzi samo <strong>slova i brojeve.</strong> i 
+        <strong>jedinstvena</strong> je. <br/>
+        Preporuka je da Vase oznake zavrsavate se nekim brojem.
+      </div>
+      Oznaka predmeta predstavlja jedinstvenu vrednost za svaki predmet. <br/>
+      U dijalogu Vam je dat jedan primer ispravne oznake predmeta u okviru polja za unos <span style="color: #666;"><strong>npr. DSMSW01</strong></span>. <br/>
+      Svi neispravni unosi prikazani su kao na slici 1, a prelaskom kursora misa preko ikonice <img src="../Slike/error.png"/> u tooltip-u ce Vam
+      se prikazati informacije o formatu ispravnog unosa. <br/>
+      <figure>
+        <img src="../Slike/PredmetId.png"/>
+        <figcaption>Slika 1. Format poruke korisniku kod neispravnog unosa oznake predmeta</figcaption>
+      </figure>
+    </div>
+    
+    <div id="naziv">
+      <h3>Naziv predmeta</h3>
+      <div class="alert alert-info" role="alert">
+        Naziv predmeta je <strong>obavezan</strong> i
+        sadrzi najvise <strong>80 karaktera</strong>.
+      </div>
+      U ovom polju potrebno je napisati naziv predmeta. Ogranicen je na 80 karaktera, a greska se prikazuje
+      u formatu kao na slici 1.
+    </div>
+    <div id="opis">
+      <h3>Opis predmeta</h3>
+      <div class="alert alert-info" role="alert">
+        Opis predmeta je <strong>obavezan</strong> i
+        sadrzi najvise <strong>300 karaktera</strong>.
+      </div>
+      U ovom polju potrebno je napisati detaljan opis predmeta. Ogranicen je na 300 karaktera, a greska se prikazuje
+      u formatu kao na slici 1.
+    </div>
+
+    <div id="smerovi">
+      <h3>Smer predmeta</h3>
+      <div class="alert alert-info" role="alert">
+        Smer koji slusa predmet nije obavezno izabrati prilikom kreiranja predmeta, on se moze naknadno izabrati. Predmet se moze slusati na jednom ili vise razlicitih smerova.
+        Da bi ste izabrali smerove na kojima se slusa predmet, stiklirajte kvadratic pored naziva smera. Primer kako izgleda lista sa smerovima koje mozete izabrati prikazana je 
+        na slici 2.
+      </div>
+      <figure>
+        <img src="../Slike/biranje_smera.png"/>
+        <figcaption>Slika 2. Lista za biranje smerova na kojima se slusa predmet.</figcaption>
+      </figure>
+    </div>
+
+    <div id="velicina_grupe">
+      <h3>Velicina grupe u kojoj se radi predmet</h3>
+      <div class="alert alert-info" role="alert">
+        Velicina grupe u kojoj se radi predmeta je <strong>obavezna</strong>.
+      </div>
+      U ovom polju se unosi velicina grupe u kojoj se radi predmet. Polje ne sme biti prazno, kao pocetnu vrednost ima 1, sto je ujedno i minimalna vrednost, dok je maximalna vrednost koja moze da se unese 
+      20. Polje moze sadrzati samo brojeve, pozitivne i cele.
+    </div>
+
+    <div id="minimalna_duzina_termina">
+      <h3>Minimalna duzina termina predmeta</h3>
+      <div class="alert alert-info" role="alert">
+        Minimalna duzina termina predmeta je <strong>obavezna</strong>.
+      </div>
+      U ovom polju se unosi binimalna duzina termina predmeta. Polje ne sme biti prazno, kao pocetnu vrednost ima 1, sto je ujedno i minimalna vrednost, dok je maximalna vrednost koja moze da se unese 
+      4. Polje moze sadrzati samo brojeve, pozitivne i cele. Vazno za ovu vrednost je da se unose celi brojevi i predstavljaju casove, gde jedan cas traje 45 minuta. Znaci ukoliko u polje unese 2, to bi u 
+      stvari znacilo da predmet traje 90 minuta.
+    </div>
+    
+    <div id="broj_termina_koji_predmet_zahteva">
+      <h3>Broj termina koji predmet zahteva</h3>
+      <div class="alert alert-info" role="alert">
+        Broj termina koji predmet zahteva je <strong>obavezna</strong>.
+      </div>
+      U ovom polju se unosi broj termina koji predmet zahteva. Polje ne sme biti prazno, kao pocetnu vrednost ima 1, sto je ujedno i minimalna vrednost, dok je maximalna vrednost koja moze da se unese 
+      20. Polje moze sadrzati samo brojeve, pozitivne i cele.
+    </div>
+
+    <div id="projektor">
+      <h3>Neophodnost projektora za nastavu</h3>
+      <div class="alert alert-info" role="alert">
+        Ovde se odredjuje da li je predmetu potreban projektor za nastavu. Ukoliko jeste stiklirajte kvadratic, ukoliko nije odstiklirajte. Kao pocetna vrednost postavljeno je da nije potreban projektor.
+         Primer je dat na slici 3.
+      </div>
+      <figure>
+        <img src="../Slike/projektor.png"/>
+        <figcaption>Slika 3. Neophodnost projektora za nastavu.</figcaption>
+      </figure>
+    </div>
+    <div id="tabla">
+      <h3>Neophodnost table za nastavu</h3>
+      <div class="alert alert-info" role="alert">
+        Ovde se odredjuje da li je predmetu potrebna tabla za nastavu. Ukoliko jeste stiklirajte kvadratic, ukoliko nije odstiklirajte. Kao pocetna vrednost postavljeno je da nije potreban projektor.
+        Polje izgleda kao polje na slici 3.
+      </div>
+    </div>
+    <div id="pametna_tabla">
+      <h3>Neophodnost pametne table za nastavu</h3>
+      <div class="alert alert-info" role="alert">
+        Ovde se odredjuje da li je predmetu potrebna pametna tabla za nastavu. Ukoliko jeste stiklirajte kvadratic, ukoliko nije odstiklirajte. Kao pocetna vrednost postavljeno je da nije potreban projektor.
+        Polje izgleda kao polje na slici 3.
+      </div>
+    </div>
+    <div id="os">
+      <h3>Neophodnost operativnog sistema za nastavu</h3>
+      <div class="alert alert-info" role="alert">
+        Ovde se odredjuje koji operativni sistem je potreban predmetu za nastavu. Biranjem jedne od ponudjenih opcija odredjujete da li je predmetu potreban Windows, Linux ili oba operativna sistema.
+        Kao pocetna vrednost postavljeno je da je Windows operativni sistem potreban za nastavu. Primer na slici 4.
+      </div>
+      <figure>
+        <img src="../Slike/os.png"/>
+        <figcaption>Slika 3. Neophodnost projektora za nastavu.</figcaption>
+      </figure>
+    </div>
+    <div id="softver">
+      <h3>Neophodan softver za nastavu</h3>
+      <div class="alert alert-info" role="alert">
+        Ovde se odredjuje koji softver je potreban predmetu za nastavu. Stikliranjem nekih od ponudjenih opcija birate softvere koji su potrebni predmetu za nastavu. Nije obavezno izabrati 
+        softver. Na pocetku nijedan softver nije stikliran. Primer izgleda polja dat je na slici 5.
+      </div>
+      <figure>
+        <img src="../Slike/softver_potreban.png"/>
+        <figcaption>Slika 5. Neophodnost softvera za nastavu.</figcaption>
+      </figure>
+    </div>
+</body>
+</html>

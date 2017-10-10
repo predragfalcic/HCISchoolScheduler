@@ -1,0 +1,512 @@
+﻿<Window x:Class="Zadatak2.Interfejs.Dialozi.IzmeniSoftverDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:binder="clr-namespace:Zadatak2.Binders"
+        xmlns:validacija="clr-namespace:Zadatak2.Validacija"
+        xmlns:l="clr-namespace:Zadatak2.Klase"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="IzmeniSoftverDialog" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+    
+    <Window.Resources>
+        <BitmapImage x:Key="ErrorIcon" UriSource="../../Slike/error.png" />
+    </Window.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Margin="0">
+            <Grid.Resources>
+                <binder:EnumBooleanConverter x:Key="enumBinder"/>
+                <binder:LengthToBooleanConverter x:Key="LengthToBoolean"/>
+            </Grid.Resources>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="29" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1*" MinHeight="50" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Name="Information" Grid.ColumnSpan="5" Background="#EEEEEE" Margin="0, 0, 0, 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock FontSize="24" Grid.Column="2" TextWrapping="Wrap" Padding="8,8,8,8" Foreground="#34495E" VerticalAlignment="Center" TextAlignment="Center">
+                    Popunite formu ispod za dodavanje novog softvera.
+                </TextBlock>
+            </Grid>
+
+            <!-- Polje za unos oznake smera -->
+            <Label FontSize="22" Grid.Row="1" HorizontalAlignment="Right">
+                <TextBlock FontSize="22">
+                    <Run Text="Jedinstvena oznaka softvera:"/>
+                    <Run Text="*" Foreground="#D50000"/>
+                </TextBlock>
+            </Label>
+            <TextBox FontSize="22" Name="IdSoftvera" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,5,20"
+                     l:PomocniSistem.HelpKey="IzmenaSoftvera" l:PomocniSistem.HelpSection="id">
+                <TextBox.Text>
+                    <Binding Path="Softver.Id" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validacija:MinMaxDuzinaIdPravilo ValidationStep="RawProposedValue" />
+                            <validacija:SadrzajIdPravilo ValidationStep="RawProposedValue"/>
+                            <validacija:JedinstvenIdSoftverPravilo ValidationStep="RawProposedValue"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="29"/>
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Image Grid.Column="1" Source="{StaticResource ErrorIcon}" Width="24" Margin="5,0,0,0">
+                                    <Image.ToolTip>
+                                        <TextBlock>
+                                            Oznaka taga sadrzi između 5 i 30 karaktera.
+                                            <LineBreak/>
+                                            Sadrzi samo slova i brojeve.
+                                            <LineBreak/>
+                                            F1 za detaljniju pomoc.
+                                        </TextBlock>
+                                    </Image.ToolTip>
+                                </Image>
+                                <TextBlock FontSize="22" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="#D50000"/>
+                            </Grid>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBlock  FontSize="24" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,3,10,5" IsHitTestVisible="False" Text="npr. VS-15" HorizontalAlignment="Left" Foreground="DarkGray">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=IdSoftvera}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <!-- Polje za unos naziva softvera -->
+            <Label FontSize="22" Grid.Row="2" HorizontalAlignment="Right">
+                <TextBlock FontSize="22">
+                        <Run Text="Naziv softvera:"/>
+                        <Run Text="*" Foreground="#D50000"/>
+                </TextBlock>
+            </Label>
+            <TextBox FontSize="22" Name="NazivSoftvera" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,5,20"
+                     l:PomocniSistem.HelpKey="IzmenaSoftvera" l:PomocniSistem.HelpSection="naziv">
+                <TextBox.Text>
+                    <Binding Path="Softver.Naziv" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validacija:DuzinaNazivaPravilo ValidationStep="RawProposedValue"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="29"/>
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Image Grid.Column="1" Source="{StaticResource ErrorIcon}" Width="24" Margin="5,0,0,0">
+                                    <Image.ToolTip>
+                                        <TextBlock>
+                                                Maksimalan broj karaktera je 30.
+                                                <LineBreak/>
+                                                F1 za detaljniju pomoć.
+                                        </TextBlock>
+                                    </Image.ToolTip>
+                                </Image>
+                                <TextBlock FontSize="22" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="#D50000"/>
+                            </Grid>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBlock FontSize="24" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,3,10,5" IsHitTestVisible="False" Text="npr. Visual Studio 2015" HorizontalAlignment="Left" Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=NazivSoftvera}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+            </TextBlock>
+
+            <!-- Polje za unos opisa softvera -->
+            <Label FontSize="22" Grid.Row="3" HorizontalAlignment="Right">
+                <TextBlock FontSize="22">
+                    <Run Text="Opis softvera:"/>
+                    <Run Text="*" Foreground="#D50000"/>
+                </TextBlock>
+            </Label>
+            <TextBox FontSize="22" Name="OpisSoftvera" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,5,20"
+                     l:PomocniSistem.HelpKey="IzmenaSoftvera" l:PomocniSistem.HelpSection="opis">
+                <TextBox.Text>
+                    <Binding Path="Softver.Opis" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validacija:DuzinaOpisaPravilo ValidationStep="RawProposedValue"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="29"/>
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Image Grid.Column="1" Source="{StaticResource ErrorIcon}" Width="24" Margin="5,0,0,0">
+                                    <Image.ToolTip>
+                                        <TextBlock>
+                                            Maskimalan broj karaktera je 200.
+                                            <LineBreak/>
+                                            F1 za detaljniju pomoc.
+                                        </TextBlock>
+                                    </Image.ToolTip>
+                                </Image>
+                                <TextBlock FontSize="22" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="#D50000"/>
+                            </Grid>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBlock FontSize="24" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,3,10,5" IsHitTestVisible="False" Text="Unesite detaljniji opis softvera..." HorizontalAlignment="Left" Foreground="DarkGray">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=OpisSoftvera}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <!-- Polje za unos proizvodjaca softvera -->
+            <Label FontSize="22" Grid.Row="4" HorizontalAlignment="Right">
+                <TextBlock FontSize="22">
+                        <Run Text="Naziv proizvodjaca softvera:"/>
+                        <Run Text="*" Foreground="#D50000"/>
+                </TextBlock>
+            </Label>
+            <TextBox FontSize="22" Name="NazivProizvodjacaSoftvera" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,5,20"
+                     l:PomocniSistem.HelpKey="IzmenaSoftvera" l:PomocniSistem.HelpSection="proizvidjac">
+                <TextBox.Text>
+                    <Binding Path="Softver.Proizvodjac" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validacija:DuzinaNazivaPravilo ValidationStep="RawProposedValue"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="29"/>
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Image Grid.Column="1" Source="{StaticResource ErrorIcon}" Width="24" Margin="5,0,0,0">
+                                    <Image.ToolTip>
+                                        <TextBlock>
+                                                Maksimalan broj karaktera je 30.
+                                                <LineBreak/>
+                                                F1 za detaljniju pomoc.
+                                        </TextBlock>
+                                    </Image.ToolTip>
+                                </Image>
+                                <TextBlock FontSize="22" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="#D50000"/>
+                            </Grid>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBlock FontSize="24" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,3,10,5" IsHitTestVisible="False" Text="npr. Microsoft" HorizontalAlignment="Left" Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=NazivProizvodjacaSoftvera}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+            </TextBlock>
+
+            <!-- Polje za unos sajta proizvodjaca softvera -->
+            <Label FontSize="22" Grid.Row="5" HorizontalAlignment="Right">
+                <TextBlock FontSize="22">
+                        <Run Text="Sajt proizvodjaca softvera:"/>
+                        <Run Text="*" Foreground="#D50000"/>
+                </TextBlock>
+            </Label>
+            <TextBox FontSize="22" Name="SajtProizvodjacaSoftvera" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,5,20"
+                     l:PomocniSistem.HelpKey="IzmenaSoftvera" l:PomocniSistem.HelpSection="sajt">
+                <TextBox.Text>
+                    <Binding Path="Softver.Sajt" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validacija:DobarLinkPravilo ValidationStep="RawProposedValue"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="29"/>
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Image Grid.Column="1" Source="{StaticResource ErrorIcon}" Width="24" Margin="5,0,0,0">
+                                    <Image.ToolTip>
+                                        <TextBlock>
+                                                Maksimalan broj karaktera je 30.
+                                                <LineBreak/>
+                                                F1 za detaljniju pomoc.
+                                        </TextBlock>
+                                    </Image.ToolTip>
+                                </Image>
+                                <TextBlock FontSize="22" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="#D50000"/>
+                            </Grid>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBlock FontSize="24" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,3,10,5" IsHitTestVisible="False" Text="npr. www.vosualstudio.com" HorizontalAlignment="Left" Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=SajtProizvodjacaSoftvera}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+            </TextBlock>
+
+            <!-- Polje za unos godine izvadanja softvera -->
+            <Label FontSize="22" Grid.Row="6" HorizontalAlignment="Right">
+                <TextBlock FontSize="22">
+                        <Run Text="Godina izadavanja softvera:"/>
+                        <Run Text="*" Foreground="#D50000"/>
+                </TextBlock>
+            </Label>
+            <xctk:ButtonSpinner FontSize="24" Spin="ButtonSpinner_Spin" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,5,20">
+                <TextBox Name="GodinaIzdavanjaSoftvera" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"
+                         l:PomocniSistem.HelpKey="IzmenaSoftvera" l:PomocniSistem.HelpSection="godina_izdavanja">
+                    <TextBox.Text>
+                        <Binding Path="Softver.GodinaIzdavanja" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validacija:GodinaIzdavanjaSoftveraPravilo ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <AdornedElementPlaceholder x:Name="textBox"/>
+                                    <Image Grid.Column="1" Source="{StaticResource ErrorIcon}" Width="24" Margin="15,0,0,0">
+                                        <Image.ToolTip>
+                                            <TextBlock>
+                                                Polje mora biti pozitivan ceo broj.
+                                                <LineBreak/>
+                                                F1 za detaljniju pomoc.
+                                            </TextBlock>
+                                        </Image.ToolTip>
+                                    </Image>
+                                    <TextBlock FontSize="22" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="#D50000"/>
+                                </Grid>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+            </xctk:ButtonSpinner>
+
+
+            <!-- Polje za unos cene softvera -->
+            <Label FontSize="22" Grid.Row="7" HorizontalAlignment="Right">
+                <TextBlock FontSize="22">
+                        <Run Text="Cena softvera:"/>
+                        <Run Text="*" Foreground="#D50000"/>
+                </TextBlock>
+            </Label>
+            <TextBox FontSize="24" Name="CenaSoftvera" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,5,20"
+                     l:PomocniSistem.HelpKey="IzmenaSoftvera" l:PomocniSistem.HelpSection="cena">
+                <TextBox.Text>
+                    <Binding Path="Softver.Cena" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validacija:CenaSoftveraPravilo ValidationStep="RawProposedValue"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="29"/>
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Image Grid.Column="1" Source="{StaticResource ErrorIcon}" Width="24" Margin="5,0,0,0">
+                                    <Image.ToolTip>
+                                        <TextBlock>
+                                                Polje ne mora biti ceo broj, al mora biti pozitivan.
+                                                <LineBreak/>
+                                                F1 za detaljniju pomoc.
+                                        </TextBlock>
+                                    </Image.ToolTip>
+                                </Image>
+                                <TextBlock FontSize="22" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="#D50000"/>
+                            </Grid>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+
+            <!-- Izbor odabir operativnog sistema -->
+            <GroupBox FontSize="24" Header="Odabir potrebnog operativnog sistema" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Padding="5,5,5,5" Margin="0,0,5,5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <RadioButton Grid.Column="0" GroupName="OSSTatus" IsChecked="{Binding Path=Softver.Os, Converter={StaticResource enumBinder}, ConverterParameter=WINDOWS}">Windows</RadioButton>
+                    <RadioButton Grid.Column="1" GroupName="OSSTatus" IsChecked="{Binding Path=Softver.Os, Converter={StaticResource enumBinder}, ConverterParameter=LINUX}">Linux</RadioButton>
+                    <RadioButton Grid.Column="2" GroupName="OSSTatus" IsChecked="{Binding Path=Softver.Os, Converter={StaticResource enumBinder}, ConverterParameter=OBOJE}">Oboje</RadioButton>
+                </Grid>
+            </GroupBox>
+
+            <Button FontSize="24" Name="Save" Grid.Row="10" Grid.Column="2" Margin="0,2,2,10"  Padding="4,4,4,4" Click="Save_Click">
+                Sacuvaj
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=IdSoftvera}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=IdSoftvera, Converter={StaticResource LengthToBoolean}, Path=Text.Length}" Value="False" />
+
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=NazivSoftvera}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=NazivSoftvera, Converter={StaticResource LengthToBoolean}, Path=Text.Length}" Value="False" />
+
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=OpisSoftvera}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=OpisSoftvera, Converter={StaticResource LengthToBoolean}, Path=Text.Length}" Value="False" />
+
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=NazivProizvodjacaSoftvera}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=NazivProizvodjacaSoftvera, Converter={StaticResource LengthToBoolean}, Path=Text.Length}" Value="False" />
+
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=SajtProizvodjacaSoftvera}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=SajtProizvodjacaSoftvera, Converter={StaticResource LengthToBoolean}, Path=Text.Length}" Value="False" />
+
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=GodinaIzdavanjaSoftvera}" Value="False"/>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=CenaSoftvera}" Value="False"/>
+
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button FontSize="24" Name="Cancel" Grid.Row="10" Grid.Column="3" Margin="2,0,5,10" Padding="4,4,4,4" Click="Cancel_Click">Odustani</Button>
+        </Grid>
+    </ScrollViewer>
+</Window>

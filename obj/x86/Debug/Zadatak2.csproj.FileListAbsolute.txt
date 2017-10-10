@@ -1,0 +1,98 @@
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\bin\Debug\Zadatak2.exe
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\bin\Debug\Zadatak2.pdb
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSvePredmeteDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveSmeroveDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveSoftvereDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveUcioniceDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiPredmetaDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiSmeraDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiSoftveraDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiUcioniceDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajPredmetDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajSmerDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajSoftverDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajUcionicuDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniPredmetDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniSmer.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniSoftverDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniUcionicuDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSvePredmeteDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveSmeroveDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveSoftvereDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveUcioniceDialog.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\MainWindow.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\App.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2_MarkupCompile.cache
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2_MarkupCompile.lref
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiPredmetaDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiSmeraDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiSoftveraDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiUcioniceDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajPredmetDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajSmerDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajSoftverDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajUcionicuDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniPredmetDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniSmer.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniSoftverDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniUcionicuDialog.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\MainWindow.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.g.resources
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.Properties.Resources.resources
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.csproj.GenerateResource.Cache
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.exe
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.pdb
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.csprojResolveAssemblyReference.cache
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2_Content.g.cs
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\HelpWindow.baml
+C:\Pedja\HCI\Racunarski Centar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\HelpWindow.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.exe
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.pdb
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\bin\Debug\Zadatak2.exe
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\bin\Debug\Zadatak2.pdb
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.csprojResolveAssemblyReference.cache
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\HelpWindow.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSvePredmeteDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveSmeroveDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveSoftvereDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveUcioniceDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiPredmetaDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiSmeraDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiSoftveraDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiUcioniceDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajPredmetDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajSmerDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajSoftverDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajUcionicuDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\HelpWindow.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniPredmetDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniSmer.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniSoftverDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniUcionicuDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSvePredmeteDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveSmeroveDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveSoftvereDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\PrikaziSveUcioniceDialog.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\MainWindow.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\App.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2_Content.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2_MarkupCompile.cache
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2_MarkupCompile.lref
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiPredmetaDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiSmeraDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiSoftveraDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DetaljiUcioniceDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajPredmetDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajSmerDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajSoftverDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\DodajUcionicuDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniPredmetDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniSmer.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniSoftverDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Interfejs\Dialozi\IzmeniUcionicuDialog.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\MainWindow.baml
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.g.resources
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.Properties.Resources.resources
+C:\Pedja\HCI\RacunarskiCentar\RacunarskiCentar\Zadatak2\obj\x86\Debug\Zadatak2.csproj.GenerateResource.Cache

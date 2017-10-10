@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Izmena ucionice</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-left">
+    <a class="navbar-brand" href="#">Racunarsli centar</a>
+    <ul class="nav navbar-nav">
+     <li><a href="#id">Oznaka ucionice</a></li>
+     <li><a href="#opis">Opis ucionice</a></li>
+     <li><a href="#velicina_grupe">Broj radnih mesta u ucionici</a></li>
+     <li><a href="#projektor">Ima projektor</a></li>
+     <li><a href="#tabla">Ima tablu</a></li>
+     <li><a href="#pametna_tabla">Ima pametnu tablu</a></li>
+     <li><a href="#os">Instali ran operativni sistem</a></li>
+     <li><a href="#softver">Instaliran softver</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>Izmena ucionica</h1>
+    
+    <p>
+      Sva polja koja su oznacena sa <span style="color:#D50000;">*</span> su obavezna. <br/>
+      Softver vam nece dozvoliti potvrdu unosa dok ne unesete sva obavezna polja.
+    </p>
+    
+    <div>
+      <h3>Sta je ucionica?</h3>
+      <blockquote>
+        <p>
+          Ucionica je prostorija u kojoj se slusa predmet u odredjenom terminu. Ucionice rade od 07:00 do 22:00h. Rade svim radnim danima osim nedelje.
+          Svaka ucionica ima odredjen operativni sistem instaliran kao i instalirane softvere.
+        </p>
+      </blockquote>
+    </div>
+    
+    <div id="id">
+      <h3>Oznaka ucionice</h3>
+      <div class="alert alert-info" role="alert">
+        Oznaka ucionice mora da ima <strong>između 5 i 30 karaktera</strong>, 
+        sadrzi samo <strong>slova i brojeve.</strong> i 
+        <strong>jedinstvena</strong> je. <br/>
+        Preporuka je da Vase oznake zavrsavate se nekim brojem.
+      </div>
+      Oznaka ucionice predstavlja jedinstvenu vrednost za svaku ucionicu. <br/>
+      U dijalogu Vam je dat jedan primer ispravne oznake ucionice u okviru polja za unos <span style="color: #666;"><strong>npr. DSMSW01</strong></span>. <br/>
+      Svi neispravni unosi prikazani su kao na slici 1, a prelaskom kursora misa preko ikonice <img src="../Slike/error.png"/> u tooltip-u ce Vam
+      se prikazati informacije o formatu ispravnog unosa. <br/>
+      <figure>
+        <img src="../Slike/PredmetId.png"/>
+        <figcaption>Slika 1. Format poruke korisniku kod neispravnog unosa oznake ucionice</figcaption>
+      </figure>
+    </div>
+    
+    <div id="opis">
+      <h3>Opis ucionice</h3>
+      <div class="alert alert-info" role="alert">
+        Opis ucionice je <strong>obavezan</strong> i
+        sadrzi najvise <strong>300 karaktera</strong>.
+      </div>
+      U ovom polju potrebno je napisati detaljan opis ucionice. Ogranicen je na 300 karaktera, a greska se prikazuje
+      u formatu kao na slici 1.
+    </div>
+
+    <div id="velicina_grupe">
+      <h3>Broj radnih mesta u ucionici</h3>
+      <div class="alert alert-info" role="alert">
+        Broj radnih mesta u ucionici je <strong>obavezan</strong>.
+      </div>
+      U ovom polju se unosi Broj radnih mesta u ucionici. Polje ne sme biti prazno, kao pocetnu vrednost ima 1, sto je ujedno i minimalna vrednost, dok je maximalna vrednost koja moze da se unese 
+      30. Polje moze sadrzati samo brojeve, pozitivne i cele.
+    </div>
+
+    <div id="projektor">
+      <h3>Ima projektor</h3>
+      <div class="alert alert-info" role="alert">
+        Ovde se odredjuje da li ucionica ima projektor za nastavu. Ukoliko ima stiklirajte kvadratic, ukoliko nema odstiklirajte. Kao pocetna vrednost postavljeno je da nema projektor.
+         Primer je dat na slici 3.
+      </div>
+      <figure>
+        <img src="../Slike/projektorUcionice.png"/>
+        <figcaption>Slika 3. Biramo da li ucionica ima projektor.</figcaption>
+      </figure>
+    </div>
+    <div id="tabla">
+      <h3>Ima tablu</h3>
+      <div class="alert alert-info" role="alert">
+        Ovde se odredjuje da li ucionica ima tablu za nastavu. Ukoliko ima stiklirajte kvadratic, ukoliko nema odstiklirajte. Kao pocetna vrednost postavljeno je da nema tablu.
+         Primer je dat na slici 3.
+      </div>
+    </div>
+    <div id="pametna_tabla">
+      <h3>Ima pametnu tablu</h3>
+      <div class="alert alert-info" role="alert">
+        Ovde se odredjuje da li ucionica ima pametnu tablu za nastavu. Ukoliko ima stiklirajte kvadratic, ukoliko nema odstiklirajte. Kao pocetna vrednost postavljeno je da nema pametnu tablu.
+         Primer je dat na slici 3.
+      </div>
+    </div>
+    <div id="os">
+      <h3>Instaliran operativni sistem</h3>
+      <div class="alert alert-info" role="alert">
+        Ovde se odredjuje koji operativni sistem je instaliran u ucionici. Biranjem jedne od ponudjenih opcija odredjujete da li su Windows, Linux ili oba operativna sistema instalirana u ucionici.
+        Kao pocetna vrednost postavljeno je da je Windows operativni sistem potreban za nastavu. Primer na slici 4.
+      </div>
+      <figure>
+        <img src="../Slike/os.png"/>
+        <figcaption>Slika 3. Instaliran operativni sistem.</figcaption>
+      </figure>
+    </div>
+    <div id="softver">
+      <h3>Instaliran softver u ucionici</h3>
+      <div class="alert alert-info" role="alert">
+        Ovde se odredjuje koji softver je instaliran u ucionici. Stikliranjem nekih od ponudjenih opcija birate softvere koji su instalirani u ucionici. Nije obavezno izabrati 
+        softver. Na pocetku nijedan softver nije stikliran. Primer izgleda polja dat je na slici 5.
+      </div>
+      <figure>
+        <img src="../Slike/softver_potreban.png"/>
+        <figcaption>Slika 5. Neophodnost softvera za nastavu.</figcaption>
+      </figure>
+    </div>
+</body>
+</html>

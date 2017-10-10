@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Pretraga smera</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-left">
+    <a class="navbar-brand" href="#">Racunarsli centar</a>
+    <ul class="nav navbar-nav">
+     <li><a href="#id">Pretraga po oznaci</a></li>
+     <li><a href="#naziv">Pretraga po nazivu</a></li>
+     <li><a href="#datum_uvodjenja">Pretraga po datumu uvodjenja</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>Pretraga smera</h1>
+    
+    <p style="color: #D50000; margin-top: 16px;">
+      <strong>Moguce je kombinovati parametre pretrage.</strong>
+    </p>
+    
+    <p style="color: #D50000; margin-top: 16px;">
+      <strong>NAPOMENA: </strong>
+      Parametri pretrage nisu osetljivi na mala i velika slova.
+    </p>
+    
+    <div id="id">
+      <h3>Pretraga po oznaci</h3>
+      <div class="alert alert-info" role="alert">
+        Svi smerovi koji u svojoj oznaci sadrze uneseni pojam ce biti prikazani kao rezultat pretrage.
+      </div>
+      
+      Neka postoje tri smera sa oznakama - <strong>SMER</strong>, <strong>SMER2</strong> i <strong>ABCDEFGHI</strong>. <br/>
+      <ul>
+        <li> Ako je parametar pretrage <strong>SME</strong> rezultat su prva dva smera. </li>
+        <li> Ako je parametar pretrage <strong>ER2</strong> rezultat je samo drugi smer. </li>
+        <li> Ako je parametar pretrage <strong>E</strong> rezultat su sva tri smera. </li>
+      </ul>
+    
+    </div>
+    
+    <div id="naziv">
+      <h3>Pretraga po nazivu</h3>
+      <div class="alert alert-info" role="alert">
+        Svi smerovi koji u svom nazivu sadrze uneseni pojam ce biti prikazani kao rezultat pretrage.
+      </div>
+      
+       Neka postoje tri smera sa nazivima - <strong>SMER</strong>, <strong>SMER2</strong> i <strong>ABCDEFGHI</strong>. <br/>
+      <ul>
+        <li> Ako je parametar pretrage <strong>SME</strong> rezultat su prva dva smera. </li>
+        <li> Ako je parametar pretrage <strong>ER2</strong> rezultat je samo drugi smer. </li>
+        <li> Ako je parametar pretrage <strong>E</strong> rezultat su sva tri smera. </li>
+      </ul>
+    </div>
+    <br/>
+    
+    <div id="datum_uvodjenja">
+      <h3>Pretraga po dotumu uvodjenja</h3>
+      
+      <div class="alert alert-info" role="alert">
+        Kao rezultat prikazuju se smerovi ciji se datum uvodjenja smera nalazi izmedju odabrana dva datuma. Datumi se biraju klikon na ikonicu, gde ukoliko kliknete na ikonicu sa leve strane 
+        bice prikazan kalendar u kome treba da izaberete od kog datuma zelite da trazite smerove, dok klikom na ikonicu sa desne strane birate do kog datuma zelite da trazite smer. Vazno je napomenuti 
+        da ukoliko su datum postavljeni da jednake vrednosti i gde je vrednost danasnji dan pretraga se nece izvrsiti. Primer izgleda polja je dat na slici 1.
+      </div>
+      
+      <figure>
+        <img src="../Slike/pretraga_slike.png"/>
+        <figcaption>Slika 1. Prikaz komponente za pretragu po datumu uvodjenja smera.</figcaption>
+      </figure>
+    </div>
+</body>
+</html>

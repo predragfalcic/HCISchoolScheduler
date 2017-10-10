@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Pretraga predmeta</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-left">
+    <a class="navbar-brand" href="#">Racunarsli centar</a>
+    <ul class="nav navbar-nav">
+     <li><a href="#id">Pretraga po oznaci</a></li>
+     <li><a href="#naziv">Pretraga po nazivu</a></li>
+     <li><a href="#grupa">Pretraga po velicini grupe predmeta</a></li>
+     <li><a href="#casovi">Pretraga po minimalnom broju casova predmeta</a></li>
+     <li><a href="#termini">Pretraga po broju termina predmeta</a></li>
+     <li><a href="#oprema">Pretraga po opremi potrebnoj za nastavu</a></li>
+     <li><a href="#os">Pretraga po potrebnom operativnom sistemu</a></li>
+     <li><a href="#additional">Pretraga po dodatnim informacijama</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>Pretraga predmeta</h1>
+    
+    <p style="color: #D50000; margin-top: 16px;">
+      <strong>Moguce je kombinovati parametre pretrage.</strong>
+    </p>
+    
+    <p style="color: #D50000; margin-top: 16px;">
+      <strong>NAPOMENA: </strong>
+      Parametri pretrage nisu osetljivi na mala i velika slova.
+    </p>
+    
+    <div id="id">
+      <h3>Pretraga po oznaci</h3>
+      <div class="alert alert-info" role="alert">
+        Svi predmeti koji u svojoj oznaci sadrze uneseni pojam ce biti prikazani kao rezultat pretrage.
+      </div>
+      
+      Neka postoje tri predmeta sa oznakama - <strong>PREDMET</strong>, <strong>PREDMET2</strong> i <strong>ABCDEFGHI</strong>. <br/>
+      <ul>
+        <li> Ako je parametar pretrage <strong>PRED</strong> rezultat su prva dva predmeta. </li>
+        <li> Ako je parametar pretrage <strong>MET2</strong> rezultat je samo drugi predmet. </li>
+        <li> Ako je parametar pretrage <strong>E</strong> rezultat su sva tri predmeta. </li>
+      </ul>
+    
+    </div>
+    
+    <div id="naziv">
+      <h3>Pretraga po nazivu</h3>
+      <div class="alert alert-info" role="alert">
+        Svi predmeti koji u svom nazivu sadrze uneseni pojam ce biti prikazani kao rezultat pretrage.
+      </div>
+      
+      Neka postoje tri predmeta sa nazivima - <strong>PREDMET</strong>, <strong>PREDMET2</strong> i <strong>ABCDEFGHI</strong>. <br/>
+      <ul>
+        <li> Ako je parametar pretrage <strong>PRED</strong> rezultat su prva dva predmeta. </li>
+        <li> Ako je parametar pretrage <strong>MET2</strong> rezultat je samo drugi predmet. </li>
+        <li> Ako je parametar pretrage <strong>E</strong> rezultat su sva tri predmeta. </li>
+      </ul>
+    </div>
+    <br/>
+    
+    <div id="grupa">
+      <h3>Pretraga po velicini grupe predmeta</h3>
+      <div class="alert alert-info" role="alert">
+        Kao rezutat pretrage prikazuju se svi predmeti cija je ocekivana velicina grupe u unesenom opsegu.
+      </div>
+      Kao sto vidite na slici 1, u prvo polje se unosi <b>minimalan broj velicine grupe</b>, a u drugo polje
+      se unosi <b>maksimalan broj velicine grupe</b>.<br/>
+      Predmeti ciji se broj velicine grupe nalazi izmedju ova dva broja bice prikazan u tabeli.
+      <figure>
+        <img src="../Slike/pretraga_velicine_grupe.png"/>
+        <figcaption>Slika 1. Prikaz komponente za pretragu po broju velicine grupe</figcaption>
+      </figure>
+    </div>
+    
+    <div id="casovi">
+      <h3>Pretraga po minimalnom broju casova predmeta</h3>
+      <div class="alert alert-info" role="alert">
+        Kao rezutat pretrage prikazuju se svi predmeti ciji je broj casova u unesenom opsegu.
+      </div>
+      U prvo polje se unosi <b>minimalan broj casova predmeta </b>, a u drugo polje
+      se unosi <b>maksimalan broj casova predmeta</b>.<br/>
+      Predmeti ciji se broj casova nalazi izmedju ova dva broja bice prikazan u tabeli. 
+      Polje je isto izgleda kao polje na slici 1.
+    </div>
+
+    <div id="termini">
+      <h3>Pretraga po broju termina predmeta</h3>
+      <div class="alert alert-info" role="alert">
+        Kao rezutat pretrage prikazuju se svi predmeti ciji je broj termina u unesenom opsegu.
+      </div>
+      U prvo polje se unosi <b>minimalan broj termina predmeta </b>, a u drugo polje
+      se unosi <b>maksimalan broj termina predmeta</b>.<br/>
+      Predmeti ciji se broj termina nalazi izmedju ova dva broja bice prikazan u tabeli. 
+      Polje je isto izgleda kao polje na slici 1.
+    </div>
+
+    <div id="oprema">
+      <h3>Pretraga po opremi potrebnoj za nastavu</h3>
+      
+      <div class="alert alert-info" role="alert">
+        Kao rezultat prikazuju se predmeti cija je potrebna oprema jedna od izabranih vrednosti.
+      </div>
+      
+      <figure>
+        <img src="../Slike/oprema.png"/>
+        <figcaption>Slika 2. Pretraga po potrebjon opremi predmeta</figcaption>
+      </figure>
+      
+      Dakle, na slici 2. vidite da mozete oznaciti vise oprema.
+      To znaci da, ako ste oznacili opcije <b>Projektor</b> i <b>Tabla</b>, kao rezultat pretrage Vam se prikazuju svi
+      predmeti kod kojih je potreban projektor <b>ILI</b> predmeti kod kojih je potrebna tabla.      
+    </div>
+
+    <div id="os">
+      <h3>Pretraga po potrebnom operativnom sistemu</h3>
+      
+      <div class="alert alert-info" role="alert">
+        Kao rezultat prikazuju se predmeti ciji je potreban operativni sistem jedan od izabranih vrednosti.
+      </div>
+      
+      Vidite da mozete oznaciti vise operativnih sistema.
+      To znaci da, ako ste oznacili opcije <b>Windows</b> i <b>Linux</b>, kao rezultat pretrage Vam se prikazuju svi
+      predmeti kod kojih je potreban Windows <b>ILI</b> predmeti kod kojih je potreban Linux. Polje izgleda kao polje na slici 2. 
+    </div>
+    
+    <div id="additional">
+      <h3>Pretraga po dodatnim informacijama</h3>
+      
+      <div class="alert alert-info" role="alert">
+        Kao rezultat prikazuju se predmeti koji poseduju neku od izabranih vrednosti. Dodatne informacije obuhvataju pretragu predmeta po smerovima i neophodnom softveru.
+        Princip pretrage je isti kao u prethodna dva slucaja.
+      </div>
+      
+      <figure>
+        <img src="../Slike/predmet_dodatne_informacije.png"/>
+        <figcaption>Slika 3. Prikaz komponente za pretragu po dodatnim informacijama</figcaption>
+      </figure>
+    </div>
+</body>
+</html>

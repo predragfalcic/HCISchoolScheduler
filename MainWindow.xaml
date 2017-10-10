@@ -1,0 +1,269 @@
+﻿<Window x:Class="Zadatak2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:commands="clr-namespace:Zadatak2.Commands"
+        xmlns:validacija="clr-namespace:Zadatak2.Validacija"
+        Title="Racunarski Centar" Height="799" Width="1631"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Loaded="Window_Loaded" Closing="Window_Closing" MouseEnter="Window_MouseEnter">
+    
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control" Key="U" 
+                Command="commands:Commands.DodajUcionicu" />
+        <KeyBinding Modifiers="Ctrl+Shift" Key="U"
+                    Command="commands:Commands.PrikaziSveUcionice" />
+        
+        <KeyBinding Modifiers="Control" Key="P"
+                    Command="commands:Commands.DodajPredmet" />
+        <KeyBinding Modifiers="Ctrl+Shift" Key="P"
+                    Command="commands:Commands.PrikaziSvePredmete" />
+        
+        <KeyBinding Modifiers="Control" Key="S"
+                    Command="commands:Commands.DodajSmer" />
+        <KeyBinding Modifiers="Ctrl+Shift" Key="S"
+                    Command="commands:Commands.PrikaziSveSmerove" />
+        
+        <KeyBinding Modifiers="Control" Key="F"
+                    Command="commands:Commands.DodajSoftver" />
+        <KeyBinding Modifiers="Ctrl+Shift" Key="F"
+                    Command="commands:Commands.PrikaziSveSoftvere" />
+    </Window.InputBindings>
+    
+    <Window.Resources>
+
+        <BitmapImage x:Key="Add" UriSource="/Slike/AddItem.png"/>
+        <BitmapImage x:Key="Delete" UriSource="/Slike/DeleteItem.png"/>
+        <BitmapImage x:Key="Edit" UriSource="/Slike/EditItem.png"/>
+        <BitmapImage x:Key="View" UriSource="/Slike/ViewItem.png"/>
+        <BitmapImage x:Key="DemoMode" UriSource="/Slike/DemoMode.jpg"/>
+        <BitmapImage x:Key="Help" UriSource="/Slike/Help.png"/>
+
+        <Style TargetType="Button" x:Key="ToolbarButton" >
+            <Setter Property="Margin" Value="1,2,1,2"/>
+            <Setter Property="Padding" Value="4"/>
+        </Style>
+        <BitmapImage x:Key="ErrorIcon" UriSource="Slike/error.png" />
+    </Window.Resources>
+    <DockPanel>
+        <Menu DockPanel.Dock ="Top" Background="#ddd" FontSize="22">
+            <Menu.ItemsPanel>
+                <!--Podkontrola koja određuje kako se item-i prikazuju.-->
+                <ItemsPanelTemplate>
+                    <!-- Specificiramo ne šta je u kontroli nego template koji je formira-->
+                    <DockPanel HorizontalAlignment="Left"></DockPanel>
+                    <!-- Prikazujemo preko Dock Panela koji preuzima sav prostor -->
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="_Ucionica">
+                <MenuItem InputGestureText="Ctrl+U" Header="_Dodaj Ucionicu" Click="DodajUcionicu_Click">
+                    <MenuItem.Icon>
+                        <Image Height="20" Width="20" Source="{StaticResource Add}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem InputGestureText="Ctrl+Shift+U" Header="_Prikazi Ucionice" 
+                          Click="PrikaziSveUcionice_Click">
+                    <MenuItem.Icon>
+                        <Image Height="20" Width="20" Source="{StaticResource View}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Predmet">
+                <MenuItem InputGestureText="Ctrl+P" Header="_Dodaj Predmet"
+                          Command="commands:Commands.DodajPredmet">
+                    <MenuItem.Icon>
+                        <Image Height="20" Width="20" Source="{StaticResource Add}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem InputGestureText="Ctrl+Shift+P" Header="_Prikaži Predmete"
+                          Command="commands:Commands.PrikaziSvePredmete">
+                    <MenuItem.Icon>
+                        <Image Height="20" Width="20" Source="{StaticResource View}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Smer">
+                <MenuItem InputGestureText="Ctrl+S" Header="_Dodaj Smer"
+                          Command="commands:Commands.DodajSmer">
+                    <MenuItem.Icon>
+                        <Image Height="20" Width="20" Source="{StaticResource Add}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem InputGestureText="Ctrl+Shift+S" Header="_Prikaži Smerove"
+                          Command="commands:Commands.PrikaziSveSmerove">
+                    <MenuItem.Icon>
+                        <Image Height="20" Width="20" Source="{StaticResource View}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Softver">
+                <MenuItem InputGestureText="Ctrl+F" Header="_Dodaj Softver"
+                          Command="commands:Commands.DodajSoftver">
+                    <MenuItem.Icon>
+                        <Image Height="20" Width="20" Source="{StaticResource Add}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem InputGestureText="Ctrl+Shift+F" Header="_Prikaži Softvere"
+                          Command="commands:Commands.PrikaziSveSoftvere">
+                    <MenuItem.Icon>
+                        <Image Height="20" Width="20" Source="{StaticResource View}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Pomoc">
+                <MenuItem InputGestureText="F5" Header="Demo mod" Click="Demo_Mod_Clicked">
+                    <MenuItem.Icon>
+                        <Image Height="20" Width="20"  Source="{StaticResource DemoMode}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem InputGestureText="F1" Header="Online pomoc" Click="MenuItem_Click_2">
+                    <MenuItem.Icon>
+                        <Image Height="20" Width="20" Source="{StaticResource Help}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <DockPanel DockPanel.Dock="Right">
+            
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Grid DockPanel.Dock="Bottom">
+                <Grid Name="MainWindowGrid" Background="LightSteelBlue">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Toolbar left side with all manifestations -->
+                    <ItemsControl x:Name="PredmetiItems" Grid.Column="0" ItemsSource="{Binding Path=Predmeti}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" Background="#34495E"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Background="#EEEEEE" Margin="1,1,1,0" Cursor="Hand" Tag="{Binding Path=Id}" 
+                                             PreviewMouseLeftButtonDown="PredmetiItem_PreviewMouseLeftButtonDown" MouseMove="PredmetiItem_MouseMove">
+                                    <StackPanel Orientation="Vertical" Margin="0,4,2,4">
+                                        <TextBlock FontSize="20" Text="{Binding Path=Id}" FontWeight="Bold"/>
+                                        <TextBlock FontSize="20" Text="{Binding Path=Naziv}"/>
+                                        <TextBlock FontSize="20">
+                                            <Run Text="Broj casova predmeta: " />
+                                            <Run Text="{Binding Path=MinimalnaDuzinaTermina}" />
+                                        </TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- Drop Items area -->
+                    <Canvas Name="SatnicaMap" Grid.Column="1" AllowDrop="True" ContextMenuService.IsEnabled="False" 
+                            PreviewMouseLeftButtonDown="SatnicaMap_PreviewMouseLeftButtonDown" MouseMove="SatnicaMap_MouseMove" 
+                            DragEnter="SatnicaMap_DragEnter" Drop="SatnicaMap_Drop" MouseRightButtonDown="SatnicaMap_MouseRightButtonDown">
+                        <Canvas.Resources>
+                            <Style x:Key="{x:Type ToolTip}" TargetType="{x:Type ToolTip}">
+                                <Setter Property="Background" Value="#EEEEEE"/>
+                                <Setter Property="BorderBrush" Value="#666666"/>
+                                <Setter Property="HasDropShadow" Value="False"/>
+                            </Style>
+                        </Canvas.Resources>
+                        <Canvas.Background>
+                            <ImageBrush ImageSource="Slike\Satnica.png" AlignmentX="Left" AlignmentY="Top" Stretch="None"/>
+                        </Canvas.Background>
+                        <Canvas.ContextMenu>
+                            <ContextMenu Name="PredmetContextMenu">
+                                <MenuItem FontSize="20" Header="Prikazi detalje predmeta"
+                                          Command="commands:Commands.PrikaziDetaljePredmeta"
+                                          CommandParameter="{Binding Path=ClickedPredmet}">
+                                    <MenuItem.Icon>
+                                        <Image Height="20" Width="20" Source="{StaticResource View}"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem FontSize="20" Header="Izmeni predmet"
+                                          Command="commands:Commands.IzmeniPredmet"
+                                          CommandParameter="{Binding Path=ClickedPredmet}">
+                                    <MenuItem.Icon>
+                                        <Image Height="20" Width="20" Source="{StaticResource Edit}"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem FontSize="20" Header="Ukloni predmet iz rasporeda"
+                                          Click="MenuItem_Click">
+                                    <MenuItem.Icon>
+                                        <Image Height="20" Width="20" Source="{StaticResource Delete}"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </Canvas.ContextMenu>
+                    </Canvas>
+                    <Grid Grid.Column="2" Background="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" HorizontalAlignment="Left">
+                            <TextBlock FontSize="20">
+                                <Run Text="Datum za koji kreirate raspored:"/>
+                                <Run Text="*" Foreground="#D50000"/>
+                            </TextBlock>
+                                    </Label>
+                                    <DatePicker FontSize="22" Grid.Row="1" Name="KreiranjeTerminaDatum" Focusable="False" SelectedDateChanged="KreiranjeTerminaDatum_SelectedDateChanged">
+                                        <DatePicker.Resources>
+                                            <Style TargetType="DatePickerTextBox">
+                                                <Setter Property="Text" Value="Datum za koji kreirate raspored"/>
+                                                <Setter Property="IsHitTestVisible" Value="False"/>
+                                            </Style>
+                                        </DatePicker.Resources>
+                                        <DatePicker.SelectedDate>
+                                            <Binding Path="DatumRasporeda" UpdateSourceTrigger="PropertyChanged">
+                                            </Binding>
+                                        </DatePicker.SelectedDate>
+                                    </DatePicker>
+                                    <Label Name="lblErrorDatum" Visibility="Hidden" Grid.Row="2" Foreground="Red" FontSize="20">Za nedelju ne mozete kreirati raspored.</Label>
+                                    <Label Name="lblErrorDatumPreDanasnjeg" Visibility="Hidden" Grid.Row="3" Foreground="Red" FontSize="20">Datum ne moze biti stariji od danasnjeg.</Label>
+
+                                    <Label Grid.Row="4" HorizontalAlignment="Left">
+                                        <TextBlock FontSize="20">
+                                            <Run Text="Ucionica za koju pravite raspored:"/>
+                                            <Run Text="*" Foreground="#D50000"/>
+                                        </TextBlock>
+                                    </Label>
+                                    <ComboBox Grid.Row="5" Name="cmbListaUcionica" FontSize="22" ItemsSource="{Binding Ucionice}"  SelectionChanged="cmbListaUcionica_SelectionChanged"></ComboBox>
+                                    <Label Name="lblErrorUcionica" Visibility="Hidden" Grid.Row="6" Foreground="Red" FontSize="20">Molimo vas izaberite ucionicu.</Label>
+
+                                    <CheckBox Name="UcioniceUlisti" Grid.Row="7" IsChecked="False" Checked="UcioniceUlisti_Checked" FontSize="22" Unchecked="UcioniceUlisti_Unchecked">Prikaz slobodnih ucionica</CheckBox>
+
+                                    <Label Name="lblOsUcioniceText" Visibility="Hidden" Grid.Row="8" FontSize="22">Operativni sistem u ucionici:</Label>
+                                    <Label Background="LightBlue" Name="lblOsUcionice" Visibility="Hidden" Grid.Row="9" FontSize="24"></Label>
+
+                                    <Label Name="lblSoftverUcioniceText" Grid.Row="10" FontSize="22">Softver u ucionici:</Label>
+                                        <ScrollViewer Name="scrViewSoftver" Grid.Row="11" Height="150">
+                                        <Grid Grid.Row="12">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Label Name="lblSoftverUcionice" Background="LightBlue" Visibility="Hidden" FontSize="24"></Label>
+                                        </Grid>
+                                    </ScrollViewer>
+                                </Grid>
+                </Grid>
+            </Grid>
+        </DockPanel>
+    </DockPanel>
+    
+</Window>

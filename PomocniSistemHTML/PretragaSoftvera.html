@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Pretraga softvera</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-left">
+    <a class="navbar-brand" href="#">Racunarski centar</a>
+    <ul class="nav navbar-nav">
+     <li><a href="#id">Pretraga po oznaci</a></li>
+     <li><a href="#naziv">Pretraga po nazivu</a></li>
+     <li><a href="#datum_uvodjenja">Pretraga po godini izdavanja</a></li>
+     <li><a href="#cena">Pretraga po ceni</a></li>
+     <li><a href="#os">Pretraga po operativnom sistemu</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>Pretraga softvera</h1>
+    
+    <p style="color: #D50000; margin-top: 16px;">
+      <strong>Moguce je kombinovati parametre pretrage.</strong>
+    </p>
+    
+    <p style="color: #D50000; margin-top: 16px;">
+      <strong>NAPOMENA: </strong>
+      Parametri pretrage nisu osetljivi na mala i velika slova.
+    </p>
+    
+    <div id="id">
+      <h3>Pretraga po oznaci</h3>
+      <div class="alert alert-info" role="alert">
+        Svi softveri koji u svojoj oznaci sadrze uneseni pojam ce biti prikazani kao rezultat pretrage.
+      </div>
+      
+      Neka postoje tri softvera sa oznakama - <strong>SMER</strong>, <strong>SMER2</strong> i <strong>ABCDEFGHI</strong>. <br/>
+      <ul>
+        <li> Ako je parametar pretrage <strong>SME</strong> rezultat su prva dva softvera. </li>
+        <li> Ako je parametar pretrage <strong>ER2</strong> rezultat je samo drugi softver. </li>
+        <li> Ako je parametar pretrage <strong>E</strong> rezultat su sva tri softvera. </li>
+      </ul>
+    
+    </div>
+    
+    <div id="naziv">
+      <h3>Pretraga po nazivu</h3>
+      <div class="alert alert-info" role="alert">
+        Svi softveri koji u svom nazivu sadrze uneseni pojam ce biti prikazani kao rezultat pretrage.
+      </div>
+      
+      Neka postoje tri softvera sa oznakama - <strong>SMER</strong>, <strong>SMER2</strong> i <strong>ABCDEFGHI</strong>. <br/>
+      <ul>
+        <li> Ako je parametar pretrage <strong>SME</strong> rezultat su prva dva softvera. </li>
+        <li> Ako je parametar pretrage <strong>ER2</strong> rezultat je samo drugi softver. </li>
+        <li> Ako je parametar pretrage <strong>E</strong> rezultat su sva tri softvera. </li>
+      </ul>
+    </div>
+    <br/>
+    
+    <div id="datum_uvodjenja">
+      <h3>Pretraga po godini izdavanja</h3>
+      
+      <div class="alert alert-info" role="alert">
+        Kao rezultat prikazuju se softveri cija se godina izdavanja softvera nalazi izmedju odabrane dve godine. Godine se biraju direktnim unos vrednosti u polja ili klikom na 
+        strelice sa desne strane svakog polja gde se vrednosti povecavaju za jedan. U polju sa leve strane unosi se od koje godine izdavanja trazite softver, a u polju 
+        sa desne strane unosi se do koje godine trazite softver. Primer izgleda polja je dat na slici 1.
+      </div>
+      
+      <figure>
+        <img src="../Slike/godina_izdavanja_pretraga.png"/>
+        <figcaption>Slika 1. Prikaz komponente za pretragu po datumu uvodjenja smera.</figcaption>
+      </figure>
+    </div>
+    <div id="cena">
+      <h3>Pretraga po ceni</h3>
+      
+      <div class="alert alert-info" role="alert">
+        Kao rezultat prikazuju se softveri cija se cena nalazi izmedju odabrane dve cene. Cene se unose direktnim unos vrednosti u polja.
+         U polju sa leve strane unosi se minimalna cena softvera, a u polju sa desne strane unosi se maximalna cena softvera.
+      </div>
+
+      <div id="os">
+      <h3>Pretraga po potrebnom operativnom sistemu</h3>
+      
+      <div class="alert alert-info" role="alert">
+        Kao rezultat prikazuju se softveri ciji je potreban operativni sistem jedan od izabranih vrednosti.
+      </div>
+      
+      Vidite da mozete oznaciti vise operativnih sistema.
+      To znaci da, ako ste oznacili opcije <b>Windows</b> i <b>Linux</b>, kao rezultat pretrage Vam se prikazuju svi
+      softveri kod kojih je potreban Windows <b>ILI</b> softveri kod kojih je potreban Linux.
+    </div>
+    </div>
+</body>
+</html>

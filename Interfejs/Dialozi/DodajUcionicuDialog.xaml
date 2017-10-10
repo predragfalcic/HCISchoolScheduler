@@ -1,0 +1,354 @@
+﻿<Window x:Class="Zadatak2.Interfejs.Dialozi.DodajUcionicuDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:binder="clr-namespace:Zadatak2.Binders"
+        xmlns:validacija="clr-namespace:Zadatak2.Validacija"
+        xmlns:l="clr-namespace:Zadatak2.Klase"
+        Title="DodajUcionicuDialog" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+    
+    <Window.Resources>
+        <BitmapImage x:Key="ErrorIcon" UriSource="../../Slike/error.png" />
+    </Window.Resources>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Margin="0">
+            <Grid.Resources>
+                <binder:EnumBooleanConverter x:Key="enumBinder"/>
+                <binder:LengthToBooleanConverter x:Key="LengthToBoolean"/>
+            </Grid.Resources>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="29" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1*" MinHeight="50" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1*" MinHeight="50" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Name="Information" Grid.ColumnSpan="5" Background="#EEEEEE" Margin="0, 0, 0, 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock FontSize="24" Grid.Column="2" TextWrapping="Wrap" Padding="8,8,8,8" Foreground="#34495E" VerticalAlignment="Center" TextAlignment="Center">
+                    Popunite formu ispod za dodavanje nove ucionice.
+                </TextBlock>
+            </Grid>
+
+            <!-- Polje za unos oznake ucionice -->
+            <Label FontSize="22" Grid.Row="1" HorizontalAlignment="Right">
+                <TextBlock FontSize="22">
+                    <Run Text="Jedinstvena oznaka ucionice:"/>
+                    <Run Text="*" Foreground="#D50000"/>
+                </TextBlock>
+            </Label>
+            <TextBox FontSize="22" Name="IdUcionice" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,5,20"
+                     l:PomocniSistem.HelpKey="Ucionica" l:PomocniSistem.HelpSection="id">
+                <TextBox.Text>
+                    <Binding Path="Ucionica.Id" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validacija:MinMaxDuzinaIdPravilo ValidationStep="RawProposedValue" />
+                            <validacija:SadrzajIdPravilo ValidationStep="RawProposedValue"/>
+                            <validacija:JedinstvenIdUcionicaPravilo ValidationStep="RawProposedValue"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="29"/>
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Image Grid.Column="1" Source="{StaticResource ErrorIcon}" Width="24" Margin="5,0,0,0">
+                                    <Image.ToolTip>
+                                        <TextBlock>
+                                            Oznaka ucionice sadrži između 5 i 20 karaktera.
+                                            <LineBreak/>
+                                            Sadrzi samo slova i brojeve.
+                                            <LineBreak/>
+                                            F1 za detaljniju pomoć.
+                                        </TextBlock>
+                                    </Image.ToolTip>
+                                </Image>
+                                <TextBlock FontSize="22" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="#D50000"/>
+                            </Grid>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBlock FontSize="24" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,3,10,5" IsHitTestVisible="False" Text="npr. ucionicaRC-1" HorizontalAlignment="Left" Foreground="DarkGray">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=IdUcionice}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <!-- Polje za unos broja radnih mesta -->
+            <Label FontSize="22" Grid.Row="2" HorizontalAlignment="Right">
+                <TextBlock FontSize="22">
+                        <Run Text="Broj radnih mesta:"/>
+                        <Run Text="*" Foreground="#D50000"/>
+                </TextBlock>
+            </Label>
+            <TextBox FontSize="22" Name="BrRadnihMestaUcionice" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,5,20"
+                      l:PomocniSistem.HelpKey="Ucionica" l:PomocniSistem.HelpSection="velicina_grupe">
+                <TextBox.Text>
+                    <Binding Path="Ucionica.BrRadnihMesta" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validacija:BrojRadnihMestaUcionice ValidationStep="RawProposedValue"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="29"/>
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Image Grid.Column="1" Source="{StaticResource ErrorIcon}" Width="24" Margin="5,0,0,0">
+                                    <Image.ToolTip>
+                                        <TextBlock>
+                                                Polje mora biti nenegativan cio broj.
+                                                <LineBreak/>
+                                                F1 za detaljniju pomoć.
+                                        </TextBlock>
+                                    </Image.ToolTip>
+                                </Image>
+                                <TextBlock FontSize="22" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="#D50000"/>
+                            </Grid>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBlock FontSize="24" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,3,10,5" IsHitTestVisible="False" Text="npr. 30" HorizontalAlignment="Left" Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=BrRadnihMestaUcionice}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+            </TextBlock>
+
+            <!-- Polje za unos opisa ucionice -->
+            <Label FontSize="22" Grid.Row="3" HorizontalAlignment="Right">
+                <TextBlock FontSize="22">
+                    <Run Text="Opis ucionice:"/>
+                    <Run Text="*" Foreground="#D50000"/>
+                </TextBlock>
+            </Label>
+            <TextBox FontSize="22" Name="OpisUcionice" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,5,20"
+                     l:PomocniSistem.HelpKey="Ucionica" l:PomocniSistem.HelpSection="opis">
+                <TextBox.Text>
+                    <Binding Path="Ucionica.Opis" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validacija:DuzinaOpisaPravilo ValidationStep="RawProposedValue"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="29"/>
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <Image Grid.Column="1" Source="{StaticResource ErrorIcon}" Width="24" Margin="5,0,0,0">
+                                    <Image.ToolTip>
+                                        <TextBlock>
+                                            Maskimalan broj karaktera je 300.
+                                            <LineBreak/>
+                                            F1 za detaljniju pomoć.
+                                        </TextBlock>
+                                    </Image.ToolTip>
+                                </Image>
+                                <TextBlock FontSize="22" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="#D50000"/>
+                            </Grid>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBlock FontSize="24" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,3,10,5" IsHitTestVisible="False" Text="Unesite detaljniji opis ucionice..." HorizontalAlignment="Left" Foreground="DarkGray">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=OpisUcionice}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <!-- Izbor statusa projektora -->
+            <GroupBox FontSize="22" Header="Status projektora" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Padding="5,5,5,5" Margin="0,0,5,5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox Grid.Column="0" Name="ProjektorStatus" IsChecked="{Binding Path=Ucionica.ImaProjektor}">Ima Projektor</CheckBox>
+                </Grid>
+            </GroupBox>
+
+            <!-- Izbor statusa Table -->
+            <GroupBox FontSize="22" Header="Status Table" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Padding="5,5,5,5" Margin="0,0,5,5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox Grid.Column="0" Name="TablaStatus" IsChecked="{Binding Path=Ucionica.ImaTablu}">Ima Tablu</CheckBox>
+                </Grid>
+            </GroupBox>
+
+            <!-- Izbor statusa pametne table -->
+            <GroupBox FontSize="24" Header="Status pametne table" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Padding="5,5,5,5" Margin="0,0,5,5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox Grid.Column="0" Name="PametnaTablaStatus" IsChecked="{Binding Path=Ucionica.ImaPametnuTablu}">Ima Pametnu Tablu</CheckBox>
+                </Grid>
+            </GroupBox>
+
+            <!-- Izbor odabir operativnog sistema -->
+            <GroupBox FontSize="24" Header="Odabir operativnog sistema" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" Padding="5,5,5,5" Margin="0,0,5,5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <RadioButton Grid.Column="0" GroupName="OSSTatus" IsChecked="{Binding Path=Ucionica.OperativniSistemU, Converter={StaticResource enumBinder}, ConverterParameter=WINDOWS}">Windows</RadioButton>
+                    <RadioButton Grid.Column="1" GroupName="OSSTatus" IsChecked="{Binding Path=Ucionica.OperativniSistemU, Converter={StaticResource enumBinder}, ConverterParameter=LINUX}">Linux</RadioButton>
+                    <RadioButton Grid.Column="2" GroupName="OSSTatus" IsChecked="{Binding Path=Ucionica.OperativniSistemU, Converter={StaticResource enumBinder}, ConverterParameter=OBOJE}">Oboje</RadioButton>
+                </Grid>
+            </GroupBox>
+
+            <!-- Polje za unos Instaliranog softvera za ucionicu -->
+            <Label FontSize="22" Grid.Row="8" HorizontalAlignment="Right">
+                <TextBlock FontSize="22">
+                        <Run Text="Odaberi instaliran softver za ucionicu:"/>
+                        <Run Foreground="#D50000" Text="*"/>
+                </TextBlock>
+            </Label>
+
+            <Grid Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,5,5">
+                <ScrollViewer>
+                    <Grid Name="ListaInstaliranogSoftvera" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+
+            <Button FontSize="24" Name="Save"   Grid.Row="9" Grid.Column="2" Margin="0,2,2,10"  Padding="4,4,4,4" Click="Save_Click">
+                Sacuvaj
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=IdUcionice}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=IdUcionice, Converter={StaticResource LengthToBoolean}, Path=Text.Length}" Value="False" />
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=OpisUcionice}" Value="False"/>
+                                    <Condition Binding="{Binding ElementName=OpisUcionice, Converter={StaticResource LengthToBoolean}, Path=Text.Length}" Value="False" />
+                                    <Condition Binding="{Binding Path=(Validation.HasError), ElementName=BrRadnihMestaUcionice}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button FontSize="24" Name="Cancel" Grid.Row="9" Grid.Column="3" Margin="2,0,5,10" Padding="4,4,4,4" Click="Cancel_Click">Odustani</Button>
+        </Grid>
+    </ScrollViewer>
+</Window>
